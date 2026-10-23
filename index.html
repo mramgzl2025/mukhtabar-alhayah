@@ -1473,9 +1473,9 @@ renderTech(0,false);renderTech(1,false);
  $("lgStaff").onclick=()=>enter({skip:true});
  $("lgFam").onclick=()=>{enter({v:true,par:true,n:"وليّ أمر طالبة"});setTimeout(()=>{const t=document.querySelector('.st[data-x="fam"]');if(t){t.click();t.scrollIntoView({behavior:"smooth",block:"start"})}},350)};
  /* logout */
- $("lgOut").onclick=()=>{try{saveProg();["lab-reg","lab-name","lab-found","lab-seen","lab-done"].forEach(k=>localStorage.removeItem(k));}catch(_){}sc.found=new Set();sc.seen=new Set();doneX=new Set();updLeft();renderBadges();document.querySelectorAll(".st .done").forEach(d=>d.remove());drawScope();nameIn.value="";nm.value="";cl.value="";vn.value="";vt.value="";vs.value="";sBuild();vBuild();renderCert();renderFamSpot();bar();if(window.lxNudge)lxNudge();window.scrollTo({top:0})};
+ $("lgOut").onclick=()=>{try{saveProg();["lab-reg","lab-name","lab-found","lab-seen","lab-done"].forEach(k=>localStorage.removeItem(k));}catch(_){}sc.found=new Set();sc.seen=new Set();doneX=new Set();updLeft();renderBadges();document.querySelectorAll(".st .done").forEach(d=>d.remove());drawScope();nameIn.value="";nm.value="";cl.value="";vn.value="";vt.value="";vs.value="";sBuild();vBuild();renderCert();renderFamSpot();bar();if(window.lxShowNudge)lxShowNudge();window.scrollTo({top:0})};
  window.labOpenGate=open;const reg=store.get("lab-reg",null);if(reg&&reg.ok){bar();return}
- nm.value=store.get("lab-name","")||"";sBuild();vBuild();window.labOpenGate=open;if(window.lxNudge)lxNudge();
+ nm.value=store.get("lab-name","")||"";sBuild();vBuild();window.labOpenGate=open;if(window.lxShowNudge)lxShowNudge();
 })();
 /* ===== سباق أولياء الأمور (Telegram codes → teacher import → page republish) ===== */
 const TG_HINT="في تليجرام اختاروا مجموعة «نتائج الطالبات» ثم أرسلوا ✈️";
@@ -2297,8 +2297,8 @@ const more=$("lxMore"),ms=document.querySelector(".mission"),hw=document.querySe
 const ill=$("lxIll");if(ill)ill.outerHTML=ILL;
 setHome();
 })();
-window.lxNudge=function(){try{const r=store.get("lab-reg",null);if(r&&r.ok)return;const n=document.getElementById("lxNudge");const lb=document.getElementById("lxLogin");if(lb)lb.hidden=false;if(n)setTimeout(()=>{const r2=store.get("lab-reg",null);if(!(r2&&r2.ok))n.hidden=false},2200)}catch(e){}};
-window.lxNudge();
+window.lxShowNudge=function(){try{const r=store.get("lab-reg",null);if(r&&r.ok)return;const n=document.getElementById("lxNudge");const lb=document.getElementById("lxLogin");if(lb)lb.hidden=false;if(n)setTimeout(()=>{const r2=store.get("lab-reg",null);if(!(r2&&r2.ok))n.hidden=false},2200)}catch(e){}};
+window.lxShowNudge();
 
 </script>
 
